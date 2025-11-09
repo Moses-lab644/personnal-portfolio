@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <h1>DEBUG.<span>KING</span></h1>
+        <ul>
+          <li><a href="#Home">Home</a></li>
+          <li><a href="#About">About</a></li>
+          <li><a href="#services">Service</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#Contact">Contact</a></li>
+        </ul>
+      </nav>
+      <img src="images/phil3.jpg" alt="Philip Moses">
+      <div class="header-text">
+        <h1>Hi,<br> I'm Philip Moses</h1>
+        <p>Web Developer</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="Home">
+  <div class="container">
+    <h1>Welcome to My Portfolio</h1>
+    <p>
+      I'm Philip Moses, a passionate web developer building modern, responsive, 
+      and user-friendly websites.
+    </p>
+    <a href="#About" class="Home-btn">Learn More</a>
+  </div>
+</section>
+
+
+  <!-- About -->
+  <section id="About">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <img src="images/phil4.jpg" alt="About me photo">
+        </div>
+        <div class="about-col-2">
+          <h1 class="sub-title">About Me</h1>
+          <p>I am Philip Moses A Full Stack Developer In The Making..... <br>
+          I'm From Akwa-Ibom, Nigeria</p>
+          <div class="tab-title">
+            <p class="tab-links active-link"> <span>Skills</span> <br>
+            HTML, CSS, JavaScript, Node And Expressjs</p>
+            </p>
+            <p class="tab-links"> <span>Experience </span><br> 
+            Hand on project building responsive websites <br>
+          Also curious about learning new things.</p>
+            <p class="tab-links"><span>Education </span><br> <br>
+          An undergraduate student studying Computer Science at <br>
+        Abia State University Uturu (ABSU)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+  <div class="container">
+    <h2>Services</h2>
+    <div class="service-list">
+      
+      <div class="service-box">
+        <i class="fas fa-code"></i>
+        <h3>Web Development</h3>
+        <p>I build fast, modern, and responsive websites.</p>
+      </div>
+
+      <div class="service-box">
+        <i class="fas fa-server"></i>
+        <h3>Backend Development</h3>
+        <p>Secure and scalable APIs with Node.js & Express.</p>
+      </div>
+
+      <div class="service-box">
+        <i class="fas fa-pencil-ruler"></i>
+        <h3>UI/UX Design</h3>
+        <p>Beautiful and intuitive designs that engage users.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <h2>My Portfolio</h2>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="backend">Backend</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item web">
+        <img src="images/project1.jpg" alt="Web Project">
+        <div class="portfolio-overlay">
+          <h3>Web Project</h3>
+          <p>Responsive website design.</p>
+          <a href="#web">View Project</a>
+        </div>
+      </div>
+
+      <div class="portfolio-item backend">
+        <img src="images/project2.jpg" alt="Backend Project">
+        <div class="portfolio-overlay">
+          <h3>Backend API</h3>
+          <p>Node.js & Express REST API.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+
+      <div class="portfolio-item design">
+        <img src="images/project3.jpg" alt="Design Project">
+        <div class="portfolio-overlay">
+          <h3>UI/UX Design</h3>
+          <p>Modern landing page design.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+
+      <div class="portfolio-item web">
+        <img src="images/project4.jpg" alt="Web Project 2">
+        <div class="portfolio-overlay">
+          <h3>Web App</h3>
+          <p>Full-stack project with authentication.</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+      
+
+
+
+  <section id="Contact">
+  <h2>Contact Me</h2>
+  <form class="contact-form" action="/contact" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  <p>$Copy, My best portfolio 2025</p>
+</footer>
+
+<script>
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Remove active from all buttons
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const filter = button.getAttribute("data-filter");
+
+      portfolioItems.forEach(item => {
+        if (filter === "all" || item.classList.contains(filter)) {
+          item.classList.remove("hide");
+        } else {
+          item.classList.add("hide");
+        }
+      });
+    });
+  });
+</script>
+
+
+</body>
+</html>
